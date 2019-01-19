@@ -15,6 +15,12 @@ a = input("Enter integer a: ")
 a = int(a)
 b = input("Enter integer b: ")
 b = int(b)
-print("Greatest common divider: ", CustomFunctions.gcdEuclid(a, b))
+print("Greatest common divider: ", CustomFunctions.greatestCommonDivider(a, b), "\n")
+
+c = input("Enter integer c: ")
+c = int(c)
+d = input("Enter integer d: ")
+d = int(d)
+print("Least common multiple: ", CustomFunctions.leastCommonMultiple(c, d), "\n")
 
 system("pause")
