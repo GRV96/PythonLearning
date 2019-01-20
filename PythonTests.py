@@ -6,10 +6,13 @@ import CustomFunctions
 year = input("Enter a year: ")
 year = int(year)
 
-if CustomFunctions.isLeapYear(year):
-	print(year, "is a leap year.\n")
-else:
-	print(year, "is not a leap year.\n")
+try:
+        if CustomFunctions.isLeapYear(year):
+                print(year, "is a leap year.\n")
+        else:
+                print(year, "is not a leap year.\n")
+except ValueError as ve:
+        print(ve, "\n")
 
 a = input("Enter integer a: ")
 a = int(a)
