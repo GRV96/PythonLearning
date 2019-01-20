@@ -24,21 +24,20 @@ def newLines(nb):
         i += 1
 
 def playGame():
+    answer = ""
+    mixedWord = ""
     wordToGuess = input("Enter a word to guess: ").upper()
     print("Word to guess: ", wordToGuess, ".")
-    mixedWord = ""
-    answer = ""
+    newLines(53)
     while True:
-        newLines(53)
         mixedWord = mixCharacters(wordToGuess)
         print("Mixed letters: ", mixedWord, ".")
         answer = input("Your answer: ").upper()
         if answer == wordToGuess:
-            print(answer, " is the good answer.")
+            print(answer, " is the good answer.\n")
             break;
         else:
-            print(answer, "is a wrong answer.")
-            system("pause")
+            print(answer, "is a wrong answer.\n")
 
 playGame()
 system("pause")
