@@ -1,4 +1,5 @@
 #File: MysteryWordGame
+# -*-coding: Latin-1 -*
 
 from os import system
 from random import randint
@@ -39,5 +40,6 @@ def playGame():
         else:
             print(answer, "is a wrong answer.\n")
 
-playGame()
-system("pause")
+if __name__ == "__main__":
+    playGame()
+    system("pause")
