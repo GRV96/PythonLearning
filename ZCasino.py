@@ -9,7 +9,7 @@ amount = 10000
 
 while amount > 0:
     # Player information and input
-    print("Available amount:", amount, "$")
+    print("Available amount: {0}$".format(amount))
     stake = int(input("Your stake (0 to stop): "))
     if stake <= 0:
         print("")
@@ -18,17 +18,17 @@ while amount > 0:
 
     # The game
     winningNumber = randint(0, 49)
-    print("Winning number:", winningNumber)
+    print("Winning number: {0}".format(winningNumber))
     if bet == winningNumber:
         price = 3 * stake
-        amount += price
-        print("You won", price, "$!\n")
+        amount += prize
+        print("You won {0}$!\n".format(prize))
     elif bet%2 == winningNumber%2:
-        price = ceil(stake / 2)
-        amount += price
-        print("You won", price, "$!\n")
+        prize = ceil(stake / 2)
+        amount += prize
+        print("You won {0}$!\n".format(prize))
     else:
         amount -= stake
         print("You lost.\n")
-print("You leave the casino with", amount, "$.")
+print("You leave the casino with {0}$.".format(amount))
 system("pause")
