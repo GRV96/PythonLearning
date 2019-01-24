@@ -28,17 +28,17 @@ def playGame():
     answer = ""
     mixedWord = ""
     wordToGuess = input("Enter a word to guess: ").upper()
-    print("Word to guess: ", wordToGuess, ".")
+    print("Word to guess: {0}.".format(wordToGuess))
     newLines(53)
     while True:
         mixedWord = mixCharacters(wordToGuess)
-        print("Mixed letters: ", mixedWord, ".")
+        print("Mixed letters: {0}.".format(mixedWord))
         answer = input("Your answer: ").upper()
         if answer == wordToGuess:
-            print(answer, " is the good answer.\n")
+            print("{0} is the good answer.\n".format(answer))
             break;
         else:
-            print(answer, "is a wrong answer.\n")
+            print("{0} is a wrong answer.\n".format(answer))
 
 if __name__ == "__main__":
     playGame()
