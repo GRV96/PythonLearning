@@ -1,5 +1,19 @@
 #File: CustomFunctions.py
 
+def fibonacci(n):
+        if n<0: raise ValueError("The Fibonacci sequence is only defined for n>=0.")
+        elif n==0: return 0
+        elif n==1: return 1
+        f0 = 0
+        f1 = 1
+        i = 1
+        while i<n:
+                fSum = f1 + f0
+                f0 = f1
+                f1 = fSum
+                i += 1
+        return f1
+
 def greatestCommonDivider(a, b):
         #Euclidian algorithm
         if a<=0 or b<=0: return -1

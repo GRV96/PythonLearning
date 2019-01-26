@@ -18,12 +18,20 @@ a = input("Enter integer a: ")
 a = int(a)
 b = input("Enter integer b: ")
 b = int(b)
-print("Greatest common divider: {0}\n".format(CustomFunctions.greatestCommonDivider(a, b)))
+print("Greatest common divider of a and b: {0}\n".format(CustomFunctions.greatestCommonDivider(a, b)))
 
 c = input("Enter integer c: ")
 c = int(c)
 d = input("Enter integer d: ")
 d = int(d)
-print("Least common multiple: {0}\n".format(CustomFunctions.leastCommonMultiple(c, d)))
+print("Least common multiple of c and d: {0}\n".format(CustomFunctions.leastCommonMultiple(c, d)))
+
+positionN = input("Calculate the Fibonacci number at position: ")
+positionN = int(positionN)
+try:
+        fibonacciNumber = CustomFunctions.fibonacci(positionN)
+        print("Term {0} of the Fibonacci sequence is {1}.\n".format(positionN, fibonacciNumber))
+except ValueError as ve:
+        print("{0}\n".format(ve))
 
 system("pause")
