@@ -23,8 +23,8 @@ def greatestCommonDivider(a, b):
         else: return greatestCommonDivider(b, r)
 
 def isLeapYear(year):
-        if year == 0: raise ValueError("Year 0 does not exist.")
-        return year%4 == 0 and year%100 != 0 or year%400 == 0
+        if year==0: raise ValueError("Year 0 does not exist.")
+        return year%4==0 and year%100!=0 or year%400==0
 
 def leastCommonMultiple(a, b):
         if a<=0 or b<=0: return -1
