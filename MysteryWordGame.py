@@ -40,6 +40,6 @@ def playGame():
         else:
             print("{0} is a wrong answer.\n".format(answer))
 
-if __name__ == "__main__":
+if __name__=="__main__":
     playGame()
     system("pause")

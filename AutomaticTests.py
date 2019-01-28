@@ -126,8 +126,8 @@ def testAll():
     lcmTest()
     leapYearTest()
 
-print("The tests will begin.")
-testAll()
-print("The tests are done.")
-
-system("pause")
+if __name__=="__main__":
+    print("The tests will begin.")
+    testAll()
+    print("The tests are done.")
+    system("pause")
