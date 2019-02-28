@@ -3,6 +3,14 @@
 from os import system
 import CustomFunctions
 
+floatNbr = 3.999999999
+print("{0} will be converted to a string.".format(floatNbr))
+print("Precision -1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, -1)))
+print("Precision 0: {0}".format(CustomFunctions.floatNumberToString(floatNbr)))
+print("Precision 1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 1)))
+print("Precision 3: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 3)))
+print("Precision 5: {0}\n".format(CustomFunctions.floatNumberToString(floatNbr, 5)))
+
 year = input("Enter a year: ")
 year = int(year)
 

@@ -28,6 +28,27 @@ def fibonacciTest():
         assert fibonacci(10)==55
     except AssertionError: print("Test fibonacci(10) failed.")
 
+def floatToStringTest():
+    try:
+        assert floatNumberToString(7.123456, -1) == "7"
+    except AssertionError: print("Test floatNumberToString(7.123456, -1) failed.")
+    
+    try:
+        assert floatNumberToString(-7.123456) == "-7"
+    except AssertionError: print("Test floatNumberToString(7.123456) failed.")
+    
+    try:
+        assert floatNumberToString(7.123456, 1) == "7.1"
+    except AssertionError: print("Test floatNumberToStr(7.123456, 1) failed.")
+    
+    try:
+        assert floatNumberToString(-7.123456, 2) == "-7.12"
+    except AssertionError: print("Test floatNumberToString(7.123456, 2) failed.")
+    
+    try:
+        assert floatNumberToString(7, 3) == "7"
+    except AssertionError: print("Test floatNumberToString(7, 3) failed.")
+
 def gcdTest():
     try:
         assert greatestCommonDivider(-1, 2)==-1
@@ -122,6 +143,7 @@ def leapYearTest():
 
 def testAll():
     fibonacciTest()
+    floatToStringTest()
     gcdTest()
     lcmTest()
     leapYearTest()

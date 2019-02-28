@@ -14,6 +14,14 @@ def fibonacci(n):
                 i += 1
         return f1
 
+def floatNumberToString(floatN, precision=0):
+        #if precision<0: precision = 0
+        numberStr = str(floatN)
+        pointIndex = numberStr.find('.')
+        if pointIndex<0: return numberStr
+        if precision<=0: return numberStr[0: pointIndex]
+        else: return numberStr[0: pointIndex+precision+1]
+
 def greatestCommonDivider(a, b):
         #Euclidian algorithm
         if a<=0 or b<=0: return -1
