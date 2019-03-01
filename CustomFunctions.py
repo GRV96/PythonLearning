@@ -15,7 +15,6 @@ def fibonacci(n):
         return f1
 
 def floatNumberToString(floatN, precision=0):
-        #if precision<0: precision = 0
         numberStr = str(floatN)
         pointIndex = numberStr.find('.')
         if pointIndex<0: return numberStr
