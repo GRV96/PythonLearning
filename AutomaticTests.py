@@ -48,6 +48,18 @@ def floatToStringTest():
     try:
         assert floatNumberToString(7, 3) == "7"
     except AssertionError: print("Test floatNumberToString(7, 3) failed.")
+    
+    try:
+        assert floatNumberToString(11.0) == "11"
+    except AssertionError: print("Test floatNumberToString(11) failed.")
+    
+    try:
+        assert floatNumberToString(11.0, 1) == "11.0"
+    except AssertionError: print("Test floatNumberToString(11, 1) failed.")
+    
+    try:
+        assert floatNumberToString(11.0, 2) == "11.0"
+    except AssertionError: print("Test floatNumberToString(11, 2) failed.")
 
 def gcdTest():
     try:

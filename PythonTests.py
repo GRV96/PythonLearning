@@ -11,6 +11,12 @@ print("Precision 1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 1)
 print("Precision 3: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 3)))
 print("Precision 5: {0}\n".format(CustomFunctions.floatNumberToString(floatNbr, 5)))
 
+floatNbr = 11.0
+print("{0} will be converted to a string.".format(floatNbr))
+print("Precision 0: {0}".format(CustomFunctions.floatNumberToString(floatNbr)))
+print("Precision 1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 1)))
+print("Precision 2: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 2)))
+
 year = input("Enter a year: ")
 year = int(year)
 
