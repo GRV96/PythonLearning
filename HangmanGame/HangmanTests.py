@@ -1,6 +1,6 @@
 #File: HangmanTests.py
 
-from HangmanFunctions import readWordFile
+from HangmanFunctions import *
 from os import system
 
 def wordReadingTest():
@@ -27,6 +27,9 @@ def wordReadingTest():
     except AssertionError:
         print("Error: last word list = {0}".format(word))
 
-if __name__ == "__main__":
+def testAll():
     wordReadingTest()
+
+if __name__ == "__main__":
+    testAll()
     system("pause")
