@@ -4,6 +4,9 @@ from HangmanFunctions import *
 from os import remove
 from os import system
 
+def testAll():
+    wordReadingTest()
+
 def wordReadingTest():
     fileName = "wordsForTest.txt"
     wordsForTest = open(fileName, "w")
@@ -19,7 +22,7 @@ def wordReadingTest():
         print("Error: wordList[0] = {0}".format(word))
     try:
         word = wordList[1]
-        assert(word=="essaie")
+        assert(word=="essai")
     except AssertionError:
         print("Error: wordList[1] = {0}".format(word))
     try:
@@ -32,9 +35,6 @@ def wordReadingTest():
         assert(word=="test")
     except AssertionError:
         print("Error: last word list = {0}".format(word))
-
-def testAll():
-    wordReadingTest()
 
 if __name__ == "__main__":
     testAll()

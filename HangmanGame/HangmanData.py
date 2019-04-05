@@ -1,9 +1,10 @@
 #File: HangmanData.py
 
-from HangmanFunctions import readWordFile
-
 #Chances allowed before the game is lost
 chances = 8
 
-#List of words
-wordList = readWordFile("word.txt")
+#This file contains a dictionary that stores the players' score.
+scoreFileName = "scores.txt"
+
+#This file stores the words that can be used in the game.
+wordFileName = "words.txt"
