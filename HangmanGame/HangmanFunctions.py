@@ -47,9 +47,12 @@ def updateScore(name, points):
     scoreDict[name] = currentScore + points
     saveScoreDictionary(scoreDict, scoreFileName)
 
-saveScoreDictionary({"joueurA": 2, "joueurB": 3}, scoreFileName)
-initScoreFile(True)
-updateScore("joueur1", 4)
-updateScore("joueur2", 7)
-print(getScoreDictionary(scoreFileName))
-print(randomWord())
+if __name__=="__main__":
+    from os import system
+    #saveScoreDictionary({"joueurA": 2, "joueurB": 3}, scoreFileName)
+    #initScoreFile(True)
+    #updateScore("joueur1", 4)
+    #updateScore("joueur2", 7)
+    print(getScoreDictionary(scoreFileName))
+    #print(randomWord())
+    system("pause")
