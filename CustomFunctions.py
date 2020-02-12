@@ -30,7 +30,7 @@ def greatestCommonDivisor(a, b):
         if type(a) is not int:
                 raise ValueError("The gcd is defined for integers only. Received "
                                  + str(a) + ".")
-        if type(a) is not int or type(b) is not int:
+        if type(b) is not int:
                 raise ValueError("The gcd is defined for integers only. Received "
                                  + str(b) + ".")
         a = abs(a)
