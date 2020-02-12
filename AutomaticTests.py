@@ -90,52 +90,62 @@ def floatToStringTest():
 
 def gcdTest():
     try:
-        testOutput = greatestCommonDivider(-1, 2)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivider(-1, 2) failed. Output: {0}.".format(testOutput))
+        testOutput = greatestCommonDivisor(7.123456, 2)
+    except ValueError:
+        pass #Expected. Do nothing
+    
+    try:
+        testOutput = greatestCommonDivisor(2, 7.123456)
+    except ValueError:
+        pass #Expected. Do nothing
 
     try:
-        testOutput = greatestCommonDivider(2, -1)
+        testOutput = greatestCommonDivisor(-1, 2)
         assert testOutput==1
     except AssertionError:
-        print("Test greatestCommonDivider(2, -1) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(-1, 2) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(0, 7)
+        testOutput = greatestCommonDivisor(2, -1)
+        assert testOutput==1
+    except AssertionError:
+        print("Test greatestCommonDivisor(2, -1) failed. Output: {0}.".format(testOutput))
+
+    try:
+        testOutput = greatestCommonDivisor(0, 7)
         assert testOutput==-1
     except AssertionError:
-        print("Test greatestCommonDivider(0, 7) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(0, 7) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(7, 0)
+        testOutput = greatestCommonDivisor(7, 0)
         assert testOutput==-1
     except AssertionError:
-        print("Test greatestCommonDivider(7, 0) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(7, 0) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(1, 8)
+        testOutput = greatestCommonDivisor(1, 8)
         assert testOutput==1
     except AssertionError:
-        print("Test greatestCommonDivider(1, 8) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(1, 8) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(8, 1)
+        testOutput = greatestCommonDivisor(8, 1)
         assert testOutput==1
     except AssertionError:
-        print("Test greatestCommonDivider(8, 1) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(8, 1) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(23, 19)
+        testOutput = greatestCommonDivisor(23, 19)
         assert testOutput==1
     except AssertionError:
-        print("Test greatestCommonDivider(23, 19) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(23, 19) failed. Output: {0}.".format(testOutput))
 
     try:
-        testOutput = greatestCommonDivider(36, 32)
+        testOutput = greatestCommonDivisor(36, 32)
         assert testOutput==4
     except AssertionError:
-        print("Test greatestCommonDivider(36, 24) failed. Output: {0}.".format(testOutput))
+        print("Test greatestCommonDivisor(36, 24) failed. Output: {0}.".format(testOutput))
 
 def lcmTest():
     try:

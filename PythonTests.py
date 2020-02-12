@@ -9,42 +9,42 @@ print("Precision -1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, -
 print("Precision 0: {0}".format(CustomFunctions.floatNumberToString(floatNbr)))
 print("Precision 1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 1)))
 print("Precision 3: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 3)))
-print("Precision 5: {0}\n".format(CustomFunctions.floatNumberToString(floatNbr, 5)))
+print("Precision 5: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 5)))
 
 floatNbr = 11.0
-print("{0} will be converted to a string.".format(floatNbr))
+print("\n{0} will be converted to a string.".format(floatNbr))
 print("Precision 0: {0}".format(CustomFunctions.floatNumberToString(floatNbr)))
 print("Precision 1: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 1)))
 print("Precision 2: {0}".format(CustomFunctions.floatNumberToString(floatNbr, 2)))
 
-year = input("Enter a year: ")
+year = input("\nEnter a year: ")
 year = int(year)
 
 try:
         if CustomFunctions.isLeapYear(year):
-                print(year, "is a leap year.\n")
+                print(year, "is a leap year.")
         else:
-                print(year, "is not a leap year.\n")
+                print(year, "is not a leap year.")
 except ValueError as ve:
-        print(ve, "\n")
+        print(ve)
 
-a = input("Enter integer a: ")
+a = input("\nEnter integer a: ")
 a = int(a)
 b = input("Enter integer b: ")
 b = int(b)
-print("Greatest common divider of a and b: {0}\n".format(CustomFunctions.greatestCommonDivider(a, b)))
+print("Greatest common divisor of a and b: {0}".format(CustomFunctions.greatestCommonDivisor(a, b)))
 
-c = input("Enter integer c: ")
+c = input("\nEnter integer c: ")
 c = int(c)
 d = input("Enter integer d: ")
 d = int(d)
-print("Least common multiple of c and d: {0}\n".format(CustomFunctions.leastCommonMultiple(c, d)))
+print("Least common multiple of c and d: {0}".format(CustomFunctions.leastCommonMultiple(c, d)))
 
-positionN = input("Calculate the Fibonacci number at position: ")
-positionN = int(positionN)
+position = input("\nCalculate the Fibonacci number at position: ")
+position = int(position)
 try:
-        fibonacciNumber = CustomFunctions.fibonacci(positionN)
-        print("Term {0} of the Fibonacci sequence is {1}.\n".format(positionN, fibonacciNumber))
+        fibonacciNumber = CustomFunctions.fibonacci(position)
+        print("Term {0} of the Fibonacci sequence is {1}.\n".format(position, fibonacciNumber))
 except ValueError as ve:
         print("{0}\n".format(ve))
 

@@ -26,10 +26,16 @@ def floatNumberToString(floatN, precision=0):
         if precision<=0: return numberStr[0: pointIndex]
         return numberStr[0: pointIndex+precision+1]
 
-def greatestCommonDivider(a, b):
+def greatestCommonDivisor(a, b):
+        if type(a) is not int:
+                raise ValueError("The gcd is defined for integers only. Received "
+                                 + str(a) + ".")
+        if type(a) is not int or type(b) is not int:
+                raise ValueError("The gcd is defined for integers only. Received "
+                                 + str(b) + ".")
         a = abs(a)
         b = abs(b)
-        if a<=0 or b<=0: return -1
+        if a==0 or b==0: return -1
         if a < b: a,b = b,a
         return _euclidianAlgorithm(a, b)
 
@@ -39,4 +45,4 @@ def isLeapYear(year):
 
 def leastCommonMultiple(a, b):
         if a<=0 or b<=0: return -1
-        else: return int(a*b/greatestCommonDivider(a, b))
+        else: return int(a*b/greatestCommonDivisor(a, b))
