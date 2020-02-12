@@ -91,13 +91,13 @@ def floatToStringTest():
 def gcdTest():
     try:
         testOutput = greatestCommonDivider(-1, 2)
-        assert testOutput==-1
+        assert testOutput==1
     except AssertionError:
         print("Test greatestCommonDivider(-1, 2) failed. Output: {0}.".format(testOutput))
 
     try:
         testOutput = greatestCommonDivider(2, -1)
-        assert testOutput==-1
+        assert testOutput==1
     except AssertionError:
         print("Test greatestCommonDivider(2, -1) failed. Output: {0}.".format(testOutput))
 

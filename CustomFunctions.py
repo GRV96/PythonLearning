@@ -1,5 +1,10 @@
 #File: CustomFunctions.py
 
+def _euclidianAlgorithm(a, b):
+        r = a%b
+        if r==0: return b
+        return _euclidianAlgorithm(b, r)
+
 def fibonacci(n):
         if n<0: raise ValueError("The Fibonacci sequence is only defined for n>=0.")
         elif n==0: return 0
@@ -19,15 +24,14 @@ def floatNumberToString(floatN, precision=0):
         pointIndex = numberStr.find('.')
         if pointIndex<0: return numberStr
         if precision<=0: return numberStr[0: pointIndex]
-        else: return numberStr[0: pointIndex+precision+1]
+        return numberStr[0: pointIndex+precision+1]
 
 def greatestCommonDivider(a, b):
-        #Euclidian algorithm
+        a = abs(a)
+        b = abs(b)
         if a<=0 or b<=0: return -1
         if a < b: a,b = b,a
-        r = a%b
-        if r==0: return b
-        else: return greatestCommonDivider(b, r)
+        return _euclidianAlgorithm(a, b)
 
 def isLeapYear(year):
         if year==0: raise ValueError("Year 0 does not exist.")
