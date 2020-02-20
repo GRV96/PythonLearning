@@ -2,17 +2,17 @@
 
 def _euclidianAlgorithm(a, b):
         r = a%b
-        if r==0: return b
+        if r == 0: return b
         return _euclidianAlgorithm(b, r)
 
 def fibonacci(n):
         if n<0: raise ValueError("The Fibonacci sequence is only defined for n>=0.")
-        elif n==0: return 0
-        elif n==1: return 1
+        elif n == 0: return 0
+        elif n == 1: return 1
         f0 = 0
         f1 = 1
         i = 1
-        while i<n:
+        while i < n:
                 fSum = f1 + f0
                 f0 = f1
                 f1 = fSum
@@ -40,7 +40,7 @@ def greatestCommonDivisor(a, b):
         return _euclidianAlgorithm(a, b)
 
 def isLeapYear(year):
-        if year==0: raise ValueError("Year 0 does not exist.")
+        if year == 0: raise ValueError("Year 0 does not exist.")
         return year%4==0 and year%100!=0 or year%400==0
 
 def leastCommonMultiple(a, b):

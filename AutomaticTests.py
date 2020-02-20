@@ -3,247 +3,162 @@
 from CustomFunctions import *
 from os import system
 
-def fibonacciTest():        
-    try:
-        testResult = fibonacci(-1)
-    except ValueError:
-        pass #Expected. Do nothing.
 
+def fibonacci_test_exception(n, error_type):
+    error_raised = False
     try:
-        testOutput = fibonacci(0)
-        assert testOutput==0
-    except AssertionError:
-        print("Test fibonacci(0) failed. Output: {0}.".format(testOutput))
+        fibonacci(n)
+    except error_type:
+        error_raised = True
+    except Exception:
+        pass
+    if not error_raised:
+        print("Test fibonacci({}) failed. Expected error: {}."
+              .format(n, error_type))
 
-    try:
-        testOutput = fibonacci(1)
-        assert testOutput==1
-    except AssertionError:
-        print("Test fibonacci(1) failed. Output: {0}.".format(testOutput))
 
+def fibonacci_test_normal(n, expected_output):
     try:
-        testOutput = fibonacci(2)
-        assert testOutput==1
+        actual_output = fibonacci(n)
+        assert actual_output == expected_output
     except AssertionError:
-        print("Test fibonacci(2) failed. Output: {0}.".format(testOutput))
+        failure_description = "Test fibonacci({}) failed."\
+            + " Expected output: {}; actual output: {}."
+        print(failure_description.format(n, expected_output, actual_output))
 
-    try:
-        testOutput = fibonacci(3)
-        assert testOutput==2
-    except AssertionError:
-        print("Test fibonacci(3) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = fibonacci(10)
-        assert testOutput==55
-    except AssertionError:
-        print("Test fibonacci(10) failed. Output: {0}.".format(testOutput))
+def run_fibonacci_tests():
+    fibonacci_test_exception(-1, ValueError)
+    fibonacci_test_normal(0, 0)
+    fibonacci_test_normal(1, 1)
+    fibonacci_test_normal(2, 1)
+    fibonacci_test_normal(3, 2)
+    fibonacci_test_normal(10, 55)
 
-def floatToStringTest():
-    try:
-        testOutput = floatNumberToString(7.123456, -1)
-        assert testOutput=="7"
-    except AssertionError:
-        print("Test floatNumberToString(7.123456, -1) failed. Output: {0}.".format(testOutput))
 
+def float_to_string_test_normal(float_number, precision, expected_output):
     try:
-        testOutput = floatNumberToString(-7.123456)
-        assert testOutput=="-7"
+        actual_output = floatNumberToString(float_number, precision)
+        assert actual_output == expected_output
     except AssertionError:
-        print("Test floatNumberToString(-7.123456) failed. Output: {0}.".format(testOutput))
+        failure_description = "Test floatNumberToString({}, {}) failed."\
+            + " Expected output: {}; actual output: {}."
+        print(failure_description
+              .format(float_number, precision, expected_output, actual_output))
 
-    try:
-        testOutput = floatNumberToString(7.123456, 1)
-        assert testOutput=="7.1"
-    except AssertionError:
-        print("Test floatNumberToStr(7.123456, 1) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = floatNumberToString(-7.123456, 2)
-        assert testOutput=="-7.12"
-    except AssertionError:
-        print("Test floatNumberToString(-7.123456, 2) failed. Output: {0}.".format(testOutput))
+def run_float_to_string_tests():
+    float_to_string_test_normal(7.123456, -1, "7")
+    float_to_string_test_normal(-7.123456, 0, "-7")
+    float_to_string_test_normal(7.123456, 1, "7.1")
+    float_to_string_test_normal(-7.123456, 2, "-7.12")
+    float_to_string_test_normal(7, 3, "7")
+    float_to_string_test_normal(11.0, 0, "11")
+    float_to_string_test_normal(11.0, 1, "11.0")
+    float_to_string_test_normal(11.0, 2, "11.0")
 
-    try:
-        testOutput = floatNumberToString(7, 3)
-        assert testOutput=="7"
-    except AssertionError:
-        print("Test floatNumberToString(7, 3) failed. Output: {0}.".format(testOutput))
 
+def gcd_test_exception(a, b, error_type):
+    error_raised = False
     try:
-        testOutput = floatNumberToString(11.0)
-        assert testOutput=="11"
-    except AssertionError:
-        print("Test floatNumberToString(11.0) failed. Output: {0}.".format(testOutput))
+        greatestCommonDivisor(a, b)
+    except error_type:
+        error_raised = True
+    except Exception:
+        pass
+    if not error_raised:
+        failure_description = "Test greatestCommonDivisor({}, {})"\
+            + " failed. Expected error: {}."
+        print(failure_description.format(a, b, error_type))
 
-    try:
-        testOutput = floatNumberToString(11.0, 1)
-        assert testOutput=="11.0"
-    except AssertionError:
-        print("Test floatNumberToString(11.0, 1) failed. Output: {0}.".format(testOutput))
-    
-    try:
-        testOutput = floatNumberToString(11.0, 2)
-        assert testOutput=="11.0"
-    except AssertionError:
-        print("Test floatNumberToString(11.0, 2) failed. Output: {0}.".format(testOutput))
 
-def gcdTest():
+def gcd_test_normal(a, b, expected_output):
     try:
-        testOutput = greatestCommonDivisor(7.123456, 2)
-    except ValueError:
-        pass #Expected. Do nothing
-    
-    try:
-        testOutput = greatestCommonDivisor(2, 7.123456)
-    except ValueError:
-        pass #Expected. Do nothing
+        actual_output = greatestCommonDivisor(a, b)
+        assert actual_output == expected_output
+    except AssertionError:
+        failure_description = "Test greatestCommonDivisor({}, {})"\
+            + " failed. Expected output: {}; actual output: {}."
+        print(failure_description
+              .format(a, b, expected_output, actual_output))
 
-    try:
-        testOutput = greatestCommonDivisor(-1, 2)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivisor(-1, 2) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = greatestCommonDivisor(2, -1)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivisor(2, -1) failed. Output: {0}.".format(testOutput))
+def run_gcd_tests():
+    gcd_test_exception(7.123456, 2, ValueError)
+    gcd_test_exception(2, 7.123456, ValueError)
+    gcd_test_normal(-1, 2, 1)
+    gcd_test_normal(2, -1, 1)
+    gcd_test_normal(0, 7, -1)
+    gcd_test_normal(7, 0, -1)
+    gcd_test_normal(1, 8, 1)
+    gcd_test_normal(8, 1, 1)
+    gcd_test_normal(23, 19, 1)
+    gcd_test_normal(36, 32, 4)
 
-    try:
-        testOutput = greatestCommonDivisor(0, 7)
-        assert testOutput==-1
-    except AssertionError:
-        print("Test greatestCommonDivisor(0, 7) failed. Output: {0}.".format(testOutput))
 
+def lcm_test_normal(a, b, expected_output):
     try:
-        testOutput = greatestCommonDivisor(7, 0)
-        assert testOutput==-1
+        actual_output = leastCommonMultiple(a, b)
+        assert actual_output == expected_output
     except AssertionError:
-        print("Test greatestCommonDivisor(7, 0) failed. Output: {0}.".format(testOutput))
+        failure_description = "Test leastCommonMultiple({}, {})"\
+            + " failed. Expected output: {}; actual output: {}."
+        print(failure_description.format(a, b, expected_output, actual_output))
 
-    try:
-        testOutput = greatestCommonDivisor(1, 8)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivisor(1, 8) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = greatestCommonDivisor(8, 1)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivisor(8, 1) failed. Output: {0}.".format(testOutput))
+def run_lcm_tests():
+    lcm_test_normal(-1, 3, -1)
+    lcm_test_normal(3, -1, -1)
+    lcm_test_normal(0, 5, -1)
+    lcm_test_normal(5, 0, -1)
+    lcm_test_normal(6, 4, 12)
 
-    try:
-        testOutput = greatestCommonDivisor(23, 19)
-        assert testOutput==1
-    except AssertionError:
-        print("Test greatestCommonDivisor(23, 19) failed. Output: {0}.".format(testOutput))
 
+def leap_year_test_exception(year, expected_error):
+    error_raised = False
     try:
-        testOutput = greatestCommonDivisor(36, 32)
-        assert testOutput==4
-    except AssertionError:
-        print("Test greatestCommonDivisor(36, 24) failed. Output: {0}.".format(testOutput))
+        isLeapYear(year)
+    except expected_error:
+        error_raised = True
+    except Exception:
+        pass
+    if not error_raised:
+        print("Test isLeapYear({}) failed. Expected error: {}."
+              .format(year, expected_error))
 
-def lcmTest():
-    try:
-        testOutput = leastCommonMultiple(-1, 3)
-        assert testOutput==-1
-    except AssertionError:
-        print("Test leastCommonMultiple(-1, 3) failed. Output: {0}.".format(testOutput))
-    
-    try:
-        testOutput = leastCommonMultiple(3, -1)
-        assert testOutput==-1
-    except AssertionError:
-        print("Test leastCommonMultiple(3, -1) failed. Output: {0}.".format(testOutput))
-    
-    try:
-        testOutput = leastCommonMultiple(0, 5)
-        assert testOutput==-1
-    except AssertionError:
-        print("Test leastCommonMultiple(0, 5) failed. Output: {0}.".format(testOutput))
-    
-    try:
-        testOutput = leastCommonMultiple(5, 0)
-        assert testOutput==-1
-    except AssertionError:
-        print("Test leastCommonMultiple(5, 0) failed. Output: {0}.".format(testOutput))
-    
-    try:
-        testOutput = leastCommonMultiple(6, 4)
-        assert testOutput==12
-    except AssertionError:
-        print("Test leastCommonMultiple(6, 4) failed. Output: {0}.".format(testOutput))
-    
-def leapYearTest():
-    try:
-        testOutput = isLeapYear(-400)
-        assert testOutput
-    except AssertionError:
-        print("Test isLeapYear(-400) failed. Output: {0}.".format(testOutput))
 
+def leap_year_test_normal(year, expected_output):
     try:
-        testOutput = isLeapYear(-100)
-        assert not testOutput
+        actual_output = isLeapYear(year)
+        assert actual_output == expected_output
     except AssertionError:
-        print("Test isLeapYear(-100) failed. Output: {0}.".format(testOutput))
+        failure_description = "Test isLeapYear({}) failed."\
+            + " Expected output: {}; actual output: {}."
+        print(failure_description.format(year, expected_output, actual_output))
 
-    try:
-        testOutput = isLeapYear(-4)
-        assert testOutput
-    except AssertionError:
-        print("Test isLeapYear(-4) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = isLeapYear(-1)
-        assert not testOutput
-    except AssertionError:
-        print("Test isLeapYear(-1) failed. Output: {0}.".format(testOutput))
+def run_leap_year_tests():
+    leap_year_test_exception(0, ValueError)
+    leap_year_test_normal(-400, True)
+    leap_year_test_normal(-100, False)
+    leap_year_test_normal(-4, True)
+    leap_year_test_normal(-1, False)
+    leap_year_test_normal(1, False)
+    leap_year_test_normal(4, True)
+    leap_year_test_normal(100, False)
+    leap_year_test_normal(400, True)
 
-    try:
-        testOutput = isLeapYear(0)
-        assert testOutput
-    except AssertionError:
-        print("Test isLeapYear(0) failed. Output: {0}.".format(testOutput))
-    except ValueError:
-        pass #Expected exception. Do nothing.
 
-    try:
-        testOutput = isLeapYear(1)
-        assert not testOutput
-    except AssertionError:
-        print("Test isLeapYear(1) failed. Output: {0}.".format(testOutput))
+def run_tests():
+    run_fibonacci_tests()
+    run_float_to_string_tests()
+    run_gcd_tests()
+    run_lcm_tests()
+    run_leap_year_tests()
 
-    try:
-        testOutput = isLeapYear(4)
-        assert testOutput
-    except AssertionError:
-        print("Test isLeapYear(4) failed. Output: {0}.".format(testOutput))
 
-    try:
-        testOutput = isLeapYear(100)
-        assert not testOutput
-    except AssertionError:
-        print("Test isLeapYear(100) failed. Output: {0}.".format(testOutput))
-
-    try:
-        testOutput = isLeapYear(400)
-        assert testOutput
-    except AssertionError:
-        print("Test isLeapYear(400) failed. Output: {0}.".format(testOutput))
-
-def testAll():
-    fibonacciTest()
-    floatToStringTest()
-    gcdTest()
-    lcmTest()
-    leapYearTest()
-
-if __name__=="__main__":
+if __name__ == "__main__":
     print("The tests will begin.")
-    testAll()
+    run_tests()
     print("The tests are done.")
     system("pause")
