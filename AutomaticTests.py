@@ -107,8 +107,8 @@ def lcm_test_normal(a, b, expected_output):
 
 
 def run_lcm_tests():
-    lcm_test_normal(-1, 3, -1)
-    lcm_test_normal(3, -1, -1)
+    lcm_test_normal(-1, 3, 3)
+    lcm_test_normal(3, -1, 3)
     lcm_test_normal(0, 5, -1)
     lcm_test_normal(5, 0, -1)
     lcm_test_normal(6, 4, 12)

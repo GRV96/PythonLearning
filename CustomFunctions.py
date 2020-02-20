@@ -44,5 +44,5 @@ def isLeapYear(year):
         return year%4==0 and year%100!=0 or year%400==0
 
 def leastCommonMultiple(a, b):
-        if a<=0 or b<=0: return -1
-        else: return int(a*b/greatestCommonDivisor(a, b))
+        if a==0 or b==0: return -1
+        else: return int(abs(a*b)/greatestCommonDivisor(a, b))
